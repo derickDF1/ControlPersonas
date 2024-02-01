@@ -29,7 +29,6 @@ namespace ControlPersonas
 
         private void BtnIngreso_Click(object sender, EventArgs e)
         {
-            
             persona.Dpi = TxtDpi.Text;
             persona.Nombre = txtNombre.Text;
             persona.Apellido = TxtApe.Text;
@@ -47,7 +46,7 @@ namespace ControlPersonas
             LblNom.Text = persona.Nombre;
             LblApe.Text = persona.Apellido;
             LblFe.Text = persona.FechaNacimiento.ToShortDateString();
-            labelEdad.Text = persona.edad().ToString();
+            labelEdad.Text = (persona.edad().ToString())+ " años";
 
             LblDpi.Visible = true;
             LblNom.Visible = true;

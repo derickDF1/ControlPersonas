@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ControlPersonas
@@ -42,6 +43,7 @@ namespace ControlPersonas
         {
             if (nombre.Length > 0)
             {
+                nombre = Regex.Replace(nombre, @"[^a-zA-Z]", "");
                 StringBuilder nombreMasyucula = new StringBuilder(nombre);
                 nombreMasyucula[0] = char.ToUpper(nombreMasyucula[0]);
                 nombre = nombreMasyucula.ToString();
@@ -49,6 +51,7 @@ namespace ControlPersonas
 
             if (apellido.Length > 0)
             {
+                apellido = Regex.Replace(apellido, @"[^a-zA-Z]", ""); 
                 StringBuilder apellidoMayuscula = new StringBuilder(apellido);
                 apellidoMayuscula[0] = char.ToUpper(apellidoMayuscula[0]);
                 apellido = apellidoMayuscula.ToString();
@@ -76,7 +79,6 @@ namespace ControlPersonas
             if (mesActual > mesNacimiento)
             {
                 edad = (añoActual - añoNacimiento);
-                
             }
             else if ((mesActual >= mesNacimiento)&&(diaActual >= diaNacimiento))
             {
